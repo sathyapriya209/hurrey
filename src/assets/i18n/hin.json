@@ -1,0 +1,29 @@
+{
+    "batch":{
+        "title": "जत्था",
+        "add": "बैच जोड़ें",
+        "select.institute": "संस्थान का चयन करें",
+        "none":"कोई नहीं",
+        "name":"बैच का नाम",
+        "class":"कक्षा",
+        "subject":"विषय",
+        "board":"मंडल",
+        "fees":"फीस",
+        "add.batch.timings":"बैच टाइमिंग जोड़ें",
+        "save":"सहेजें",
+        "update":"अपडेट करें",
+        "day":"दिन",
+        "start.date":"आरंभ करने की तिथि",
+        "end.date":"अंतिम तिथि"
+    },
+    "institute": {
+        "institution":"संस्थान", 
+        "add.Institution":"इंस्टीट्यूशन जोड़ें",
+        "institution.Name":"संस्था का नाम",
+        "city":"नगर",
+        "district":"जिला",
+        "state":"राज्य",
+        "detect.pick.location":"पता लगाएँ / स्थान चुनें",
+        "institute":"संस्थान"
+    }
+}

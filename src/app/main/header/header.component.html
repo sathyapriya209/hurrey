@@ -1,0 +1,23 @@
+<p>
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="example-icon1" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Hurrey</span>
+      <span class="example-spacer"></span> 
+      <div class="lang-switcher">
+              <mat-form-field appearance="fill">
+            <mat-select [(value)]="selected" (selectionChange)="changeLanguage($event.value)">
+              <mat-option value="en">EN</mat-option>
+              <mat-option value="hin">हिंदी</mat-option>
+            </mat-select>
+          </mat-form-field>      
+          <p>You selected: {{selected}}</p>
+       
+    </div>     
+    </mat-toolbar>
+  </p>
+
+  
+ 
+  

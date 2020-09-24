@@ -1,0 +1,113 @@
+<h1>{{'batch.title' | translate}}</h1>
+<!-- <div class="div-container">
+    <div class="btn-add">
+        <button mat-raised-button color="primary">{{'batch.add' | translate}}</button>
+    </div>
+    <div class="label">
+        <h4>{{'batch.add' | translate}}</h4>
+    </div>
+</div> -->
+<div class="field-map-container">
+    <div class="form-field-Container">
+        <div class="select-institute">
+            <mat-form-field appearance="fill">
+                <mat-label>{{'batch.select.institute' | translate}}</mat-label>
+                <mat-select [(value)]="batch.institute_id">
+                    <mat-option>{{'batch.none' | translate}}</mat-option>
+                    <mat-option value="{{institute.id}}" *ngFor="let institute of institutes">{{institute.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+
+        <mat-form-field class="institute-form-field">
+            <mat-label>{{'batch.name' | translate}}</mat-label>
+            <input matInput type="text" [(ngModel)]="batch.name">
+
+        </mat-form-field>
+        <mat-form-field class="institute-form-field">
+            <mat-label>{{'batch.class' | translate}}</mat-label>
+            <input matInput type="text" [(ngModel)]="batch.class">
+
+        </mat-form-field>
+        <mat-form-field class="institute-form-field">
+            <mat-label>{{'batch.subject' | translate}}</mat-label>
+            <input matInput type="text" [(ngModel)]="batch.subject">
+
+        </mat-form-field>
+        <mat-form-field class="institute-form-field">
+            <mat-label>{{'batch.board' | translate}}</mat-label>
+            <input matInput type="text" [(ngModel)]="batch.board">
+        </mat-form-field>
+
+        <mat-form-field class="institute-form-field">
+            <mat-label>{{'batch.fees' | translate}}</mat-label>
+            <input matInput type="number" [(ngModel)]="batch.fee">
+        </mat-form-field>
+
+
+        <div class="batch-timing-container">
+            <div>
+                <button mat-raised-button color="primary" (click)="addBatchtimings()">{{'batch.add.batch.timings' | translate}}</button>
+            </div>
+            <div class="batches" *ngFor="let batchitem of batch.batch_timings; let i = index">
+                <mat-form-field class="institute-form-field">
+                    <mat-label>{{'batch.day' | translate}}</mat-label>
+                    <input matInput type="text" [(ngModel)]="batchitem.day">
+                </mat-form-field>
+                <!-- <mat-form-field>
+                    <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date" [(ngModel)]="batchitem.batch_start_time"
+                       [min]="minDate" [max]="maxDate" [disabled]="disabled">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <ngx-mat-datetime-picker #picker [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+                       [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
+                       [touchUi]="touchUi" [color]="color" [enableMeridian]="enableMeridian" 
+                       [disableMinute]="disableMinute" [hideTime]="hideTime">
+                    </ngx-mat-datetime-picker>
+                 </mat-form-field> -->
+                <mat-form-field>
+                    <input matInput [ngxMatDatetimePicker]="picker" placeholder="{{'batch.start.date' | translate}}"
+                        [(ngModel)]="batchitem.batch_start_time">
+                    <mat-datepicker-toggle matSuffix [for]="picker">
+                    </mat-datepicker-toggle>
+                    <ngx-mat-datetime-picker #picker enableMeridian="true"></ngx-mat-datetime-picker>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput [ngxMatDatetimePicker]="picker1" placeholder="{{'batch.end.date' | translate}}"
+                        [(ngModel)]="batchitem.batch_end_time">
+                    <mat-datepicker-toggle matSuffix [for]="picker1">
+                    </mat-datepicker-toggle>
+                    <ngx-mat-datetime-picker #picker1 enableMeridian="true"></ngx-mat-datetime-picker>
+                </mat-form-field>
+                <span>
+                    <mat-icon (click)="deleteBatchtiming(i)">close</mat-icon>
+                </span>
+            </div>
+            <div class="btn-save">
+                <button mat-raised-button color="primary" (click)="createBatch()">{{(isEditMode ? 'batch.update': 'batch.save') | translate}}</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<div layout="column" layout-gt-xs="row">
+    <mat-card class="example-card" flex flex-gt-xs="30" *ngFor="let batch of batches">
+        <div class="image-container">
+            <div class="image"></div>
+        </div>
+        <div class="institute-details" (click)="editBatch(batch)">
+            <mat-card-header>
+                <mat-card-title >{{batch.name}}</mat-card-title>
+                <mat-card-subtitle>{{getInstituteNameFromId(batch.institute_id)}} </mat-card-subtitle>
+            </mat-card-header>
+        </div>
+        <div class="batch-time-container">
+            <div class="batch-timings" *ngFor="let batchTime of batch.batch_timings">
+              {{batchTime.day}}: {{batchTime.batch_start_time | date: 'dd/MM/yyyy hh:mm a'}} - {{batchTime.batch_end_time | date: 'hh:mm a'}}
+            </div>
+            
+        </div>
+    </mat-card>
+</div>

@@ -1,0 +1,63 @@
+<h1>{{'institute.institution' | translate}}</h1>
+<!-- <div class="div-container">
+    <div class="btn-add">
+        <button mat-raised-button color="primary">{{'institute.add.Institution' | translate}}</button>
+    </div>
+    <div class="label">
+        <h4>{{'institute.add.Institution' | translate}}</h4>
+    </div>
+</div> -->
+<div class="field-map-container">
+    <div class="form-field-Container">
+        <mat-form-field class="institute-form-field">
+            <mat-label>{{'institute.institution.Name' | translate}}</mat-label>
+            <input matInput type="text" [(ngModel)]="institute.name">
+
+        </mat-form-field>
+        <mat-form-field class="institute-form-field">
+            <mat-label>{{'institute.city' | translate}}</mat-label>
+            <input matInput type="text" [(ngModel)]="institute.address.city">
+
+        </mat-form-field>
+        <mat-form-field class="institute-form-field">
+            <mat-label>{{'institute.district' | translate}}</mat-label>
+            <input matInput type="text" [(ngModel)]="institute.address.district">
+
+        </mat-form-field>
+        <mat-form-field class="institute-form-field">
+            <mat-label>{{'institute.state' | translate}}</mat-label>
+            <input matInput type="text" [(ngModel)]="institute.address.country">
+
+        </mat-form-field>
+        <mat-form-field class="institute-form-field">
+            <mat-label>{{'institute.detect.pick.location' | translate}}</mat-label>
+            <input matInput type="text" [(ngModel)]="institute.address.location">
+            <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="getlocation()">
+                <mat-icon>location_on</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <div class="btn-save">
+            <button mat-raised-button color="primary" (click)="createInstitute()">{{(isEditMode ? 'batch.update': 'batch.save') | translate}}</button>
+        </div>
+
+    </div>
+    <div id="map"></div>
+
+</div>
+<div>
+    <div layout="column" layout-gt-xs="row">
+        <mat-card class="example-card" flex flex-gt-xs="30" *ngFor="let institute of institutes">
+            <div class="image"></div>
+            <div class="institute-details" (click)="editInstitute(institute)">
+                <mat-card-header>
+                    <!-- <mat-card-subtitle>{{institute.id}} </mat-card-subtitle> | titlecase -->
+                    <mat-card-title >{{institute.name  }}</mat-card-title>
+                    <mat-card-subtitle>{{institute.address.city + ', ' + institute.address.district + ', ' + institute.address.country}} </mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="https://i.stack.imgur.com/rdi7Y.png" width="80" height="150"
+                    alt="Photo of a Shiba Inu">
+            </div>
+        </mat-card>
+    </div>
+</div>

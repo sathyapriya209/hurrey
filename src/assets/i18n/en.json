@@ -1,0 +1,30 @@
+{
+    "batch":{
+        "title": "Batch",
+        "add": "Add Batch",
+        "select.institute": "Select Institute",
+        "none":"None",
+        "name":"Batch Name",
+        "class":"Class",
+        "subject":"Subject",
+        "board":"Board",
+        "fees":"Fees",
+        "add.batch.timings":"Add Batch Timings",
+        "save":"Save",
+        "update":"Update",
+        "day":"Day",
+        "start.date":"Start date",
+        "end.date":"End date"
+    },
+    "institute": {
+       "institution":"Institution", 
+       "add.Institution":"Add Institution",
+       "institution.Name":"Institution Name",
+       "city":"City",
+       "district":"District",
+       "state":"State",
+       "detect.pick.location":"Detect/Pick Location",
+       "institute":"Institute"
+
+    }
+}
